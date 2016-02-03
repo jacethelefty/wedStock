@@ -37,15 +37,18 @@
             top: 3px; left: 70px;
             font-size: 18px;
         }
+        .stockInPort{
+            width:260px; height: 50px;
+            padding-left: 4px;
+            margin: 20px auto 0;
+            font-size: 18px;
+        }
         h1{
             margin-top: 20px;
             margin-left: 18px;
             font-weight: 700;
             color:#000;
             font-family: 'Open Sans', sans-serif;
-        }
-        button{
-
         }
         .graphRel{
             position: relative;
@@ -65,7 +68,7 @@
             padding-left: 4px;
         }
         .graph p:first-of-type{
-            margin-left: 18px;
+            margin-left: 25px;
         }
         .rangeWrap{
             background-color:#131418;
@@ -117,7 +120,12 @@
 
         .openPort{
             background-color: #F2F2F2;
-            width: 340px;    height:56px;
+            width: 100%;    height:56px;
+            margin: 0;
+        }
+        .portTop{
+            background-color: #F2F2F2;
+            width: 100%;    height:56px;
             margin: 0;
         }
         .openPort i{
@@ -155,9 +163,6 @@
             display: block;
             margin-top: -4px;
         }
-        .div.container-fluid{
-            background-color:#3C3C3D;
-        }
         .glyphicon-menu-hamburger{
             color: #000;
             font-size: 2em;
@@ -176,15 +181,58 @@
             font-size: 2em;
             line-height: 2.25em;
             position: absolute;
-            bottom: 4px; left: 24px;
+            bottom: 4px; right: 10px;
+            width: 40px; height: 40px;
+            transition: all .25s ease-in;
         }
-
-        /* Smartphones (portrait and landscape) ----------- */
-        @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 480px) {
+        .glyphicon-arrow-left:hover{
+            color: #45D7E8;
+            cursor: pointer;
         }
-
+        .glyphicon-arrow-right{
+            color: #000;
+            font-size: 2em;
+            line-height: 2.25em;
+            position: absolute;
+            bottom: 4px; right: 10px;
+            width: 40px; height: 40px;
+            transition: all .25s ease-in;
+        }
+        .glyphicon-arrow-right:hover{
+            color: #45D7E8;
+            cursor: pointer;
+        }
+        .openGraphBtm{
+            background-color: #F2F2F2;
+            width: 100%;    height:56px;
+            margin:0px;
+            position: absolute;
+            bottom: 0; left: 0;
+            z-index: 10;
+        }
+        .openGraphBtm p{
+            display: block;
+            margin: 3px auto;
+            width: 180px;
+            height: 52px;
+            position: absolute;
+            top: 0;
+            left:80px;
+            font-size: 2em;
+            padding-top: 6px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .openGraphBtm p span{
+            font-size: .5em;
+            display: block;
+            margin-top: -4px;
+        }
+        li .glyphicon-search {
+            color: #fff;
+            position: absolute;
+            top: 472px; right: 30px;
+        }
 
         </style>
     </style>
@@ -204,11 +252,16 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+
+            <div class="portTop">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
+
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#" style="font-size:1.5em;margin-top:30px;">
+                    <h1 style="font-size:1.5em;margin:100px 0 0 0;color:#fff;display:block;">
                         Stock Watch 1.0
-                    </a>
+                    </h1>
                 </li>
                 <li style="font-size:18px;color:#31B0D5">
                     WELCOME: dayTrader1
@@ -217,7 +270,7 @@
                     <a href="#"></a>
                 </li>
                 <li>
-                    <a href="#" style="font-weight:bold;font-size:1.5em">Portfolio Overview</a>
+                    <h2 style="font-weight:bold;font-size:1.5em;color:#fff;">Portfolio Overview</h2>
                 </li>
                 <li>
                     <a href="#" class="stockWatch"> FACEBOOK (FB)</a>
@@ -236,8 +289,15 @@
                 </li>
                 <li>
                     <input type="text" placeholder="FIND STOCK TO WATCH" class="stockInPort">
+                    <span class="glyphicon glyphicon-search"></span>
                 </li>
             </ul>
+
+            <div class="openGraphBtm">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+                <p>OPEN <br><span>GRAPH</span></p>
+            </div>
+
         </div>
         <!-- /#sidebar-wrapper -->
 
@@ -260,7 +320,7 @@
                             <script>
 
                             // Set the dimensions of the canvas / graph
-                            var margin = {top: 20, right: 20, bottom: 30, left: 70},
+                            var margin = {top: 20, right: 20, bottom: 40, left: 60},
                                 width = 340 - margin.left - margin.right,
                                 height = 200 - margin.top - margin.bottom;
 
@@ -349,7 +409,6 @@
                                     .style("text-anchor", "end")
                                     .attr("class", "shadow")
                                     .text("Price ($)");
-
                             });
 
                             </script>
@@ -384,13 +443,17 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="lib/vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script src="lib/profile.js"></script>
-    <!-- Menu Toggle Script -->
-    <!-- <script>
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-    </script> -->
+
+    <script>
+        $(".glyphicon-arrow-left").click(function() {
+            $("#sidebar-wrapper").css("margin-left", "-340px");
+        });
+    </script>
+    <script>
+        $(".openGraphBtm .glyphicon-arrow-right").click(function() {
+            $("#sidebar-wrapper").css("margin-left", "354px");
+        });
+    </script>
 
 </body>
 
