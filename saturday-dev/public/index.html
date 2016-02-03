@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!--  Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,300|Coda' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="lib/vendor/simple-sidebar.css" rel="stylesheet">
+
+    <style type="text/css">
+        html {font-size: .75em;}
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font: 1em Arial;}
+        #page-content-wrapper{
+            padding: 0;
+        }
+        .stockIn{
+            width:220px; height: 50px;
+            padding-left: 4px;
+            position: absolute;
+            top: 3px; left: 70px;
+            font-size: 18px;
+        }
+        h1{
+            margin-top: 20px;
+            margin-left: 18px;
+            font-weight: 700;
+            color:#000;
+            font-family: 'Open Sans', sans-serif;
+        }
+        button{
+
+        }
+        .graphRel{
+            position: relative;
+            background-color:#fff;
+            width:340px;
+        }
+        .graph p{
+            display: inline-block;
+            margin: 40px 20px 0 25px;
+            font-weight: bold;
+            color: #fff;
+            font-family: 'Coda', cursive;
+        }
+        .graph p span{
+            font-weight: normal;
+            color: #5CB859;
+            padding-left: 4px;
+        }
+        .graph p:first-of-type{
+            margin-left: 18px;
+        }
+        .rangeWrap{
+            background-color:#131418;
+            height: 230px;
+            margin-top: -100px;
+        }
+        .range{
+            position: absolute;
+            bottom: 60px;    left:20px;
+        }
+        .range button{
+            font-size: 1.5em;
+            background-color:#D79999;
+            color: #fff;
+            border: 2px solid #BE6262;
+            border-radius: 2px;
+            margin: 0 4px;
+            transition: all 200ms ease-in;
+        }
+        .range button:hover{
+            background-color: #ccc;
+        }
+
+        path {
+            stroke: #fff;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: grey;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+        }
+        .area {
+            fill: #45D7E8;
+              stroke-width: 0;
+        }
+        .shadow{
+            font-weight: 700;
+            font-size: 1.25em;
+            color: #fff;
+        }
+
+
+        /* open portfolio on mobile */
+
+        .openPort{
+            background-color: #F2F2F2;
+            width: 340px;    height:56px;
+            margin: 0;
+        }
+        .openPort i{
+            color:#3C3C3C;
+        }
+        .hideGraph{
+            position: absolute;
+            bottom: 10px;
+            left:50%;
+            font-size: 1em;
+            font-weight: 400;
+            width: 140px;
+        }
+        .openPortBtm{
+            background-color: #F2F2F2;
+            width: 340px;    height:56px;
+            margin:0px 0 0 -14px;
+            position: relative;
+        }
+        .openPortBtm p{
+            display: block;
+            margin: 3px auto;
+            width: 180px;
+            height: 52px;
+            position: absolute;
+            top: 0;
+            left:90px;
+            font-size: 2em;
+            padding-top: 6px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .openPortBtm p span{
+            font-size: .5em;
+            display: block;
+            margin-top: -4px;
+        }
+        .div.container-fluid{
+            background-color:#3C3C3D;
+        }
+        .glyphicon-menu-hamburger{
+            color: #000;
+            font-size: 2em;
+            line-height: 2.25em;
+            margin-left: 20px;
+        }
+        .glyphicon-search{
+            color: #000;
+            font-size: 2em;
+            line-height: 2.25em;
+            position: absolute;
+            top: 2px; right: 20px;
+        }
+        .glyphicon-arrow-left{
+            color: #000;
+            font-size: 2em;
+            line-height: 2.25em;
+            position: absolute;
+            bottom: 4px; left: 24px;
+        }
+
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px) {
+        }
+
+
+        </style>
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" style="font-size:1.5em;margin-top:30px;">
+                        Stock Watch 1.0
+                    </a>
+                </li>
+                <li style="font-size:18px;color:#31B0D5">
+                    WELCOME: dayTrader1
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#" style="font-weight:bold;font-size:1.5em">Portfolio Overview</a>
+                </li>
+                <li>
+                    <a href="#" class="stockWatch"> FACEBOOK (FB)</a>
+                </li>
+                <li>
+                    <a href="#" class="stockWatch"> APPLE (AAPL)</a>
+                </li>
+                <li>
+                    <a href="#" class="stockWatch"> TESLA (TSLA)</a>
+                </li>
+                <li>
+                    <a href="#" class="stockWatch"> GOOGLE (GOOG)</a>
+                </li>
+                <li>
+                    <a href="#" class="stockWatch"> MICROSOFT (MS)</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="FIND STOCK TO WATCH" class="stockInPort">
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row graph graphRel" id="body">
+
+                            <div class="openPort">
+                                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                <input type="text" placeholder="FIND STOCK TO WATCH" class="stockIn">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+
+                            <h1>TESLA (TSLA)</h1>
+
+                            <!-- load the d3.js library -->
+                            <script src="http://d3js.org/d3.v3.min.js"></script>
+
+                            <script>
+
+                            // Set the dimensions of the canvas / graph
+                            var margin = {top: 20, right: 20, bottom: 30, left: 70},
+                                width = 340 - margin.left - margin.right,
+                                height = 200 - margin.top - margin.bottom;
+
+                            // Parse the date / time
+                            var parseDate = d3.time.format("%d-%b-%y").parse;
+
+                            // Set the ranges
+                            var x = d3.time.scale().range([0, width]);
+                            var y = d3.scale.linear().range([height, 0]);
+
+                            // Define the axes
+                            var xAxis = d3.svg.axis().scale(x)
+                                .orient("bottom").ticks(5);
+
+                            var yAxis = d3.svg.axis().scale(y)
+                                .orient("left").ticks(5);
+
+                            var area = d3.svg.area()
+                                .x(function(d) { return x(d.date); })
+                                .y0(height)
+                                .y1(function(d) { return y(d.close); });
+
+                            // Define the line
+                            var valueline = d3.svg.line()
+                                .x(function(d) { return x(d.date); })
+                                .y(function(d) { return y(d.close); });
+
+                            // Adds the svg canvas
+                            var svg = d3.select("#body")
+                                .append("svg")
+                                    .attr("width", width + margin.left + margin.right)
+                                    .attr("height", height + margin.top + margin.bottom)
+                                .append("g")
+                                    .attr("transform",
+                                          "translate(" + margin.left + "," + margin.top + ")");
+
+                            // Get the data
+                            d3.csv("data.csv", function(error, data) {
+                                data.forEach(function(d) {
+                                    d.date = parseDate(d.date);
+                                    d.close = +d.close;
+                                });
+
+                                // Scale the range of the data
+                                x.domain(d3.extent(data, function(d) { return d.date; }));
+                                y.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+                                // Add the valueline path.
+                                svg.append("path")
+                                    .attr("class", "line")
+                                    .attr("d", valueline(data));
+
+                                // Add the filled area
+                                svg.append("path")
+                                    .datum(data)
+                                    .attr("class", "area")
+                                    .attr("d", area);
+
+
+
+                                // Add the X Axis
+                                svg.append("g")
+                                    .attr("class", "x axis")
+                                    .attr("transform", "translate(0," + height + ")")
+                                    .call(xAxis);
+
+                                // Add the Y Axis
+                                svg.append("g")
+                                    .attr("class", "y axis")
+                                    .call(yAxis);
+
+                                // Add the text label for the X axis
+                                svg.append("text")
+                                    .attr("transform",
+                                          "translate(" + (width/2) + " ," +
+                                                         (height+margin.bottom) + ")")
+                                    .style("text-anchor", "middle")
+                                    .attr("class", "shadow")
+                                    .text("Date");
+
+                                svg.append("text")
+                                    .attr("transform", "rotate(-90)")
+                                    .attr("y", -50)
+                                    .attr("x", margin.top - (height / 2))
+                                    .attr("dy", ".71em")
+                                    .style("text-anchor", "end")
+                                    .attr("class", "shadow")
+                                    .text("Price ($)");
+
+                            });
+
+                            </script>
+
+                            <p>OPEN: <span>35.26</span></p><p>HI: <span>38.47</span></p><p>LOW: <span>35.26</span></p><p>CLOSE: <span>36.47</span> </p><p>CHANGE: <span>1.21</span></p>
+
+                           <!--  <button class="hideGraph">hide graph</button> -->
+                            <div class="rangeWrap">
+                                <div class="range">
+                                   <button>1D</button><button>5D</button><button>1M</button><button>1Y</button>
+                                </div>
+                            </div>
+
+
+                </div>
+                            <div class="openPortBtm">
+                                <span class="glyphicon glyphicon-arrow-left"></span>
+                                <p>OPEN <br><span>PORTFOLIO</span></p>
+                            </div>
+
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="lib/profile.js"></script>
+    <!-- Menu Toggle Script -->
+    <!-- <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script> -->
+
+</body>
+
+</html>
